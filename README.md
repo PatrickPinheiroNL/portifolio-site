@@ -1,7 +1,7 @@
 # patrick.dev — Portfolio
 
 Personal portfolio of **Patrick Freitas Pinheiro** — Computer Science student,
-frontend developer, specializing in Java backend engineering.
+Java Backend Developer, focused on building backend applications with Java, Spring Boot, SQL, and AWS.
 
 Built with **React + TypeScript + Tailwind CSS**, bundled by Vite.
 
