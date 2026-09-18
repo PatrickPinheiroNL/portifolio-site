@@ -92,10 +92,29 @@ mapped in `src/lib/tone.ts`.
 - **Project links** — every `repoUrl` / `demoUrl` in `src/data/projects.ts`
   currently points to the GitHub profile so nothing 404s. Replace them with the
   individual repositories once those are public.
-- **Contact form** — validates client-side and then opens the visitor's email
-  client pre-filled (`mailto:`), which keeps the site fully static. To switch to
-  a real endpoint, replace `handleSubmit` in
-  `src/components/sections/ContactForm.tsx` with a `fetch` POST.
+- **Contact form** — validates client-side, then POSTs to
+  [Web3Forms](https://web3forms.com), which relays the message to your inbox.
+  This keeps the site fully static (no backend to host).
+
+  **Setup — one step:** go to <https://web3forms.com>, enter the address in
+  `profile.email`, and the access key arrives by email in seconds (no account
+  needed). Paste it into `contactForm.accessKey` in `src/data/profile.ts`:
+
+  ```ts
+  export const contactForm: { accessKey: string } = {
+    accessKey: 'paste-your-access-key-here',
+  }
+  ```
+
+  Then rebuild and redeploy. Free tier covers 250 messages/month.
+
+  The key is **public and write-only** — it can only send mail to the address it
+  was created for, so committing it and shipping it in the bundle is safe and
+  expected. While it is left empty the form falls back to opening the visitor's
+  email client (`mailto:`).
+
+  Spam is filtered by a hidden honeypot field; Web3Forms adds its own filtering
+  on top.
 
 ---
 

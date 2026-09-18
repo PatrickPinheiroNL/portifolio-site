@@ -14,6 +14,20 @@ export const profile = {
   year: 2026,
 } as const
 
+/**
+ * Contact form delivery (Web3Forms).
+ *
+ * Get a key at https://web3forms.com — enter `profile.email`, and the access
+ * key arrives by email in seconds. No account needed.
+ *
+ * The key is public and write-only: it can only send mail to the address it was
+ * created for, so it is safe to commit and to ship in the JS bundle. Leaving it
+ * empty makes the form fall back to opening the visitor's email client.
+ */
+export const contactForm: { accessKey: string } = {
+  accessKey: 'dc7b49a0-cb8b-433c-80a3-de09ca20f9a5',
+}
+
 export const navItems: NavItem[] = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
